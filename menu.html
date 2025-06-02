@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Carly Restaurant</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+  *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+    
+  body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+  #header{
+    background-color:#faf9f7 ;
+   }
+   #navigation a{
+    text-decoration: none;
+   }
+        
+   #navigation a:hover{
+       transform: scale(1.05);
+    }
+      
+   #navigation a:active {
+    background-color: #dcdcdc;
+         transform: scale(0.98);
+           }
+     
+   #navigation{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+   /* Checkbox oculto */
+   #menu-toggle {
+     display: none;
+   }
+
+   /* Menú móvil oculto por defecto */
+   #mobile-menu {
+     display: none;
+   }
+
+   /* En móvil: ocultar nav normal y mostrar botón */
+   @media (max-width: 767px) {
+     #navigation {
+       display: none !important;
+     }
+     
+     #menu-btn {
+       display: block;
+       cursor: pointer;
+     }
+     
+     /* Mostrar menú cuando checkbox esté marcado */
+     #menu-toggle:checked + #mobile-menu {
+       display: block;
+       background-color: #faf9f7;
+       
+     }
+     
+     #mobile-menu a {
+       display: block;
+       padding: 0.5rem;
+       margin: 0.25rem 0;
+     }
+   }
+
+   /* En tablet/desktop: ocultar botón móvil */
+   @media (min-width: 768px) {
+     #menu-btn {
+       display: none;
+     }
+   }
+
+  
+
+   
+   .bannerMenu{
+    display:flex;
+    width:100vw;
+    height:250px;
+    background-image: url("fondomenu.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+   }
+
+   #menu{
+    background-color: white;
+    font-size: 35px;     
+    font-weight: bold;  
+    padding: 15px; 
+  }
+
+  .platos{
+    padding-top: 40px;
+    display: flex;
+    justify-content: center; /* o space-evenly */
+    align-items: center;
+    gap: 70px; /* opcional para espacio entre platos */
+    width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    
+  }
+
+  .plato{
+    display:flex;
+    background-color: #95be57;
+    width:450px;
+    height: 300px;
+    border-radius:10px;
+    color:white;
+    margin:10px;
+    
+  }
+  .plato .contenido{
+    width:60%
+  }
+  .plato .imagenPlato{
+    display: flex;
+    width:40%;
+    justify-content: center;
+    align-items: center;
+    margin:15px;
+    background-size:cover;
+  }
+  .plato .imagenPlato img{
+    width: 200px;
+    height: auto;
+    background-size: cover;
+    
+  }
+
+  .plato h1{
+    font-size: 20px;
+    margin:15px;
+  }
+  .plato p{
+    margin:15px;
+  }
+   #Reservar{
+    background-color: white;
+    color:black;
+    padding:5px;
+    border-radius: 7px;
+   }
+   #Reservar:hover{
+    background-color: black;
+    color:white;
+   }
+   
+   .menu{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 100px;
+   }
+  
+   .containerPlatos{
+    display: flex;
+    flex-direction: column;
+    width:200px;
+    
+   }
+
+ 
+   .cantidadPrecio{
+    display:flex;
+    justify-content: center;
+
+   }
+   .menu .Titulo{
+    margin-top: 30px;
+    background-color: black;
+    color:white;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    
+   }
+
+   .cantidadPrecio{
+    display:flex;
+    flex-wrap: wrap; 
+    width:350px;
+    gap: 50px; 
+    margin-top: 30px;
+   }
+
+   .cantidadPrecio .titulo2{
+    color:white;
+    font-size: 16px;
+    background-color: rgb(63, 62, 62);
+    padding: 15px 20px;
+   }
+
+   .contador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .contador button {
+    font-size: 20px;
+    padding: 5px 10px;
+    background-color: white;
+    border: 1px solid black;
+    color: black
+
+  }
+
+  .Pedido{
+    text-decoration: none;
+    border:3px solid black;
+    color:black;
+    font-weight: bold;
+    font-size: 20px;
+    width:250px;
+    padding: 10px 20px;
+    margin: 50px 20px;
+    margin-left:70vw;
+    text-align: center;
+    border-radius: 10px;
+  }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="header" class="grid grid-cols-3 md:grid-cols-5 items-center p-4 shadow-md">
+    <!-- Logo con enlace a la página principal -->
+  <div class="col-span-1 flex justify-center md:justify-start">
+    <a href="../index.html">
+      <img src="../logo.jpeg" alt="La Carly Logo" id="img_logo" class="h-12 w-32 h-auto"/>
+    </a>
+  </div>
+
+     
+    <!-- Navigation normal -->
+    <nav id="navigation" class="hidden md:flex col-span-3 justify-center space-x-8 text-sm text-xl">
+      <a href="../SobreLaCarly/pagina2.html">Sobre "La Carly Restaurant"</a>
+      <a href="../MenuLaCarly/menu.html">Menú</a>
+      <a href="../Contacto/contacto.html">Contacto</a>
+      <a href="../ReservarEnLinea/ej1.html" id="Reservar">Reservar en Línea</a>
+    </nav>
+     
+    <!-- Botón menú -->
+    <div class="col-span-2 md:col-span-1 flex justify-end items-center space-x-4">
+      <label for="menu-toggle" id="menu-btn" class="text-xl cursor-pointer">☰</label>
+    </div>
+  </header>
+
+  <!-- Checkbox oculto -->
+  <input type="checkbox" id="menu-toggle">
+
+  <!-- Menú móvil -->
+  <div id="mobile-menu">
+    <nav class="flex flex-col">
+      <a href="../SobreLaCarly/pagina2.html">Sobre "La Carly Restaurant"</a>
+      <a href="../MenuLaCarly/menu.html">Menú</a>
+      <a href="../Contacto/contacto.html">Contacto</a>
+      <a href="../ReservarEnLinea/ej1.html" id="Reservar">Reservar en Línea</a>
+    </nav>
+  </div>
+
+    <div class="bannerMenu"> 
+      <p id="menu">MENÚ</p>
+    </div>
+
+    <nav class="menu">
+      <div class="containerPlatos">
+
+        <div class="TB">
+          <h1 class="Titulo">Tacos</h1>
+          <ul>
+            <li>Tacos de Lengua.</li>
+            <li>Tacos de Pollo.</li>
+            <li>Tacos de Cerdo.</li>
+            <li>Tacos de Res.</li>
+          </ul>
+        </div>
+      
+        <div class="TB">
+          <h1 class="Titulo">Bebidas</h1>
+          <ul>
+            <li>Refresco</li>
+            <li>Agua</li>
+          </ul>
+        </div>
+          
+      
+        </div>
+      <div class="cantidadPrecio">
+
+          <div class="cantidad">
+            <h1  class="titulo2">CANTIDAD</h1>
+            <ul>
+              <li>1 Taco</li>
+              <li>3 Tacos</li>
+              <li>4 Tacos</li>
+              <li>5 Tacos</li>
+            </ul>
+          </div>
+
+          <div class="precio">
+            <h1 class="titulo2">PRECIO</h1>
+            <ul>
+              <li>L. 30</li>
+              <li>L. 90</li>
+              <li>L. 120</li>
+              <li>L. 150</li>
+            </ul>
+          </div>
+
+          <div class="cantidad">
+          <h1 class="titulo2">CANTIDAD</h1>
+            <ul>
+              <li> Refresco 300 mL</li>
+              <li> Agua 300 mL</li>
+             
+            </ul>
+          </div>
+          
+        
+        <div class="precio">
+          <h1 class="titulo2">PRECIO</h1>
+          <ul>
+            <li>L. 30</li>
+            <li>L. 20</li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+    <nav class="platos">
+
+      <div class="plato">
+        <div class="imagenPlato">
+          <img src="tacolengua.jpg">
+        </div>
+        <div class="contenido">
+          <h1>Tacos de Lengua</h1>
+          <p>Suaves trozos de lengua de res cocida lentamente, servidos en tortilla de maíz con cebolla, cilantro y salsas al gusto.</p>
+          <div class="contador">
+            <button id="btnRes">-</button>
+            <span id="valor">0</span>
+            <button id="btnMas">+</button>
+          </div>
+      </div>
+        
+      </div>
+      <div class="plato">
+        <div class="imagenPlato">
+          <img src="qrwq0sszsbnhitev8xyk.jpg">
+        </div>
+          <div class="contenido">
+            <h1>Tacos de Pollo</h1>
+            <p>Pollo jugoso y bien sazonado, cocinado al punto perfecto. Servido en tortilla de maíz con cebolla, cilantro fresco y salsas al gusto.</p>
+            <div class="contador">
+              <button id="btnRes">-</button>
+              <span id="valor">0</span>
+              <button id="btnMas">+</button>
+            </div>
+          </div>
+      
+      </div>
+    <div class="plato">
+    <div class="imagenPlato">
+      <img src="tacores.jpg">
+    </div>
+    <div class="contenido">
+      <h1>Tacos de Res</h1>
+      <p>Carne de res sazonada y cocida, servida en tortillas de maíz con cebolla, cilantro, salsa y limón, ofreciendo un sabor jugoso.</p>
+      <div class="contador">
+        <button id="btnRes">-</button>
+        <span id="valor">0</span>
+        <button id="btnMas">+</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="plato">
+    <div class="imagenPlato">
+      <img src="tacocerdo.jpg">
+    </div>
+    <div class="contenido">
+      <h1>Tacos de Cerdo</h1>
+      <p>Carne de cerdo marinada y cocinada hasta quedar suave y sabrosa. Se sirven en tortillas calientes y se acompañan con cebolla, cilantro, salsa y limón.</p>
+      <div class="contador">
+        <button id="btnRes">-</button>
+        <span id="valor">0</span>
+        <button id="btnMas">+</button>
+      </div>
+    </div>
+  </div>
+  </nav>
+
+  <div class="Pedido">
+    <a href="adomicilio.html">Confirmar Pedido</a>
+  </div>
+<footer>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .pie {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .contenido {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .seccion {
+            margin: 10px;
+            width: 200px;
+        }
+
+        .titulo {
+            color: #4CAF50;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .texto {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .enlace {
+            color: white;
+            text-decoration: none;
+        }
+
+        .enlace:hover {
+            color: #4CAF50;
+        }
+
+        .lista {
+            list-style: none;
+            padding: 0;
+        }
+
+        .lista li {
+            margin: 5px 0;
+        }
+
+        .redes {
+            margin-top: 10px;
+        }
+
+        .redes a {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 5px 8px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .boton {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 5px;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+
+        .abajo {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #444;
+            font-size: 12px;
+        }
+        iframe{
+            display: none;
+        }
+        .map:target ~ iframe {
+            display: block;
+        }
+        @media (max-width: 600px) {
+            .contenido {
+                flex-direction: column;
+            }
+            .seccion {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pie">
+        <div class="contenido">
+            
+            <div class="seccion">
+                <div class="titulo">PIDE AQUI</div>
+                <div class="texto">Los Mejores Tacos</div>
+                <a href="#" class="boton">Ordena</a>
+            </div>
+
+            <div class="seccion">
+                <div class="titulo">ENLACES</div>
+                <ul class="lista">
+                    <li><a href="#" class="enlace">Contactanos</a></li>
+                    <li><a href="#" class="enlace">Registrate</a></li>
+                    <li><a href="#" class="enlace">Menu</a></li>
+                    <li><a href="#" class="enlace">Ofertas</a></li>
+                </ul>
+            </div>
+
+            <div class="seccion">
+                <div class="titulo">REDES SOCIALES</div>
+                <div class="redes">
+                    <a href="https://www.facebook.com/tacobell">Facebook</a>
+                    <a href="https://www.instagram.com/mariaaa___mejiaaa/?utm_source=ig_web_button_share_sheet">Instagram</a>
+                </div>
+            </div>
+
+            <div class="seccion">
+                <div class="titulo">CONTACTO</div>
+                <div class="texto"><a href="https://maps.app.goo.gl/LnZrzRWKq79RHfen6" class="boton">Ubicación</a></div>
+                <div class="texto">Email: tacoslacarly@gmail.com</div>
+                <div class="texto">Telefono: 8886-8842</div>
+            </div>
+        </div>
+
+        <div class="abajo">
+            <div class="texto">&copyTacos LaCarly 2025</div>
+        </div>
+    </div>
+</body>
+</footer>
+
+</body>
+  

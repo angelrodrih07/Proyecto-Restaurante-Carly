@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style3.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Open Sauce', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #faf9f7;
+    }
+
+    .contenedor {
+      display: grid;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .imagen {
+      background-image: url("60f9a270114ba195807563.jpg");
+      padding: 10px;
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .formulario1 {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      gap: 50px;
+      margin-left: 40px;
+      margin-top: 40px;
+    }
+
+    .formulario1 select,
+    .formulario1 input {
+      padding: 20px;
+      width: 350px;
+      border: 1px solid black;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .formulario1 select:hover {
+      border-color: #555;
+      background-color: #f9f9f9;
+    }
+
+    .formulario {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      gap: 50px;
+      margin-top: 80px;
+      margin-left: 40px;
+    }
+
+    .formulario input {
+      padding: 20px;
+      width: 350px;
+      border: 1px solid black;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .formulario input:hover {
+      border-color: #555;
+      background-color: #f9f9f9;
+    }
+
+    label {
+      letter-spacing: 1px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .btn-login {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-column: 4;
+      
+      background-color: black;
+      color: white;
+      border-radius: 15px;
+      border: none;
+      font-weight: bold;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      letter-spacing: 1px;
+    }
+
+    .btn-login:hover {
+      background-color: #ffcc00;
+      color: black;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transform: scale(1.05);
+    }
+
+    .btn-confirmar {
+      grid-column: 3;
+      justify-self: end;
+      background-color: black;
+      color: white;
+      border-radius: 15px;
+      padding: 15px 30px;
+      border: none;
+      font-weight: bold;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      letter-spacing: 1px;
+    }
+
+    .btn-confirmar:hover {
+      background-color: #ffcc00;
+      color: black;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transform: scale(1.05);
+    }
+
+    @media screen and (max-width: 760px) {
+      .formulario {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-left: 0;
+        padding: 0 20px;
+      }
+
+      .formulario1 {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-left: 0;
+        padding: 0 20px;
+      }
+
+      .formulario1 select,
+      .formulario1 input,
+      .formulario input {
+        width: 100%;
+      }
+
+      .btn-login,
+      .btn-confirmar {
+        grid-column: auto;
+        justify-self: center;
+        width: 100%;
+      }
+
+      .imagen {
+        height: auto;
+      }
+
+      label {
+        text-align: center;
+      }
+    }
+
+    @media screen and (max-width: 1199px) {
+      .formulario {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-left: 0;
+        padding: 0 20px;
+      }
+
+      .formulario1 {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-left: 0;
+        padding: 0 20px;
+      }
+
+      .formulario1 select,
+      .formulario1 input,
+      .formulario input {
+        width: 100%;
+      }
+
+      .btn-login,
+      .btn-confirmar {
+        grid-column: auto;
+        justify-self: center;
+        width: 100%;
+      }
+
+      .imagen {
+        height: auto;
+      }
+
+      label {
+        text-align: center;
+      }
+    }
+
+    /* Estilos para el nuevo header */
+    #header {
+      background-color: #faf9f7;
+    }
+
+    #navigation a {
+      text-decoration: none;
+    }
+
+    #navigation a:hover {
+      transform: scale(1.05);
+    }
+
+    #navigation a:active {
+      background-color: #dcdcdc;
+      transform: scale(0.98);
+    }
+
+    #navigation {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    #mobile-menu {
+      display: none;
+    }
+
+    @media (max-width: 767px) {
+      #navigation {
+        display: none !important;
+      }
+
+      #menu-btn {
+        display: block;
+        cursor: pointer;
+      }
+
+      #menu-toggle:checked + #mobile-menu {
+        display: block;
+        background-color: #faf9f7;
+      }
+
+      #mobile-menu a {
+        display: block;
+        padding: 0.5rem;
+        margin: 0.25rem 0;
+      }
+    }
+
+    @media (min-width: 768px) {
+      #menu-btn {
+        display: none;
+      }
+    }
+
+    #Reservar {
+      background-color: white;
+      color: black;
+      padding: 5px;
+      border-radius: 7px;
+    }
+
+    #Reservar:hover {
+      background-color: black;
+      color: white;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <!-- Header -->
+  <header id="header" class="grid grid-cols-3 md:grid-cols-5 items-center p-4 shadow-md">
+    <div class="col-span-1 flex justify-center md:justify-start">
+      <a href="../index.html">
+        <img src="../logo.jpeg" alt="La Carly Logo" id="img_logo" class="h-12 w-32 h-auto" />
+      </a>
+    </div>
+    <nav id="navigation" class="hidden md:flex col-span-3 justify-center space-x-8 text-sm text-xl">
+      <a href="../SobreLaCarly/pagina2.html">Sobre "La Carly Restaurant"</a>
+      <a href="../MenuLaCarly/menu.html">Menú</a>
+      <a href="../Contacto/contacto.html">Contacto</a>
+      <a href="../ReservarEnLinea/ej1.html" id="Reservar">Reservar en Línea</a>
+    </nav>
+    <div class="col-span-2 md:col-span-1 flex justify-end items-center space-x-4">
+      <label for="menu-toggle" id="menu-btn" class="text-xl cursor-pointer">☰</label>
+    </div>
+  </header>
+  <input type="checkbox" id="menu-toggle">
+  <div id="mobile-menu">
+    <nav class="flex flex-col">
+      <a href="../SobreLaCarly/pagina2.html">Sobre "La Carly Restaurant"</a>
+      <a href="../MenuLaCarly/menu.html">Menú</a>
+      <a href="../Contacto/contacto.html">Contacto</a>
+      <a href="../ReservarEnLinea/ej1.html" id="Reservar">Reservar en Línea</a>
+    </nav>
+  </div>
+
+  <div class="contenedor">
+    <div class="imagen">
+      <form class="formulario">
+        <input type="text" placeholder="Nombre">
+        <input type="text" placeholder="Apellido">
+        <label for="login">¿Ya tienes una cuenta?</label>
+        <a href="../LogIn/Iniciotaquitos.html" type="submit" class="btn-login">Iniciar Sesión</a>
+      </form>
+    </div>
+
+    <form class="formulario1">
+      <select>
+        <option>Hora</option>
+        <option>19:00</option>
+        <option>20:00</option>
+        <option>21:00</option>
+        <option>22:00</option>
+        <option>23:00</option>
+      </select>
+
+      <select>
+        <option>Personas</option>
+        <option>2 personas</option>
+        <option>4 personas</option>
+        <option>6 personas</option>
+        <option>8 personas</option>
+        <option>10 personas</option>
+      </select>
+      <input type="date" class="fecha">
+      <button type="submit" class="btn-confirmar">RESERVAR MESA</button>
+    </form>
+  </div>
+  <footer>
+      <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .pie {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .contenido {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .seccion {
+            margin: 10px;
+            width: 200px;
+        }
+
+        .titulo {
+            color: #4CAF50;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .texto {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .enlace {
+            color: white;
+            text-decoration: none;
+        }
+
+        .enlace:hover {
+            color: #4CAF50;
+        }
+
+        .lista {
+            list-style: none;
+            padding: 0;
+        }
+
+        .lista li {
+            margin: 5px 0;
+        }
+
+        .redes {
+            margin-top: 10px;
+        }
+
+        .redes a {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 5px 8px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .boton {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 5px;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+
+        .abajo {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #444;
+            font-size: 12px;
+        }
+        iframe{
+            display: none;
+        }
+        .map:target ~ iframe {
+            display: block;
+        }
+        @media (max-width: 600px) {
+            .contenido {
+                flex-direction: column;
+            }
+            .seccion {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pie">
+        <div class="contenido">
+            
+            <div class="seccion">
+                <div class="titulo">PIDE AQUI</div>
+                <div class="texto">Los Mejores Tacos</div>
+                <a href="#" class="boton">Ordena</a>
+            </div>
+
+            <div class="seccion">
+                <div class="titulo">ENLACES</div>
+                <ul class="lista">
+                    <li><a href="#" class="enlace">Contactanos</a></li>
+                    <li><a href="#" class="enlace">Registrate</a></li>
+                    <li><a href="#" class="enlace">Menu</a></li>
+                    <li><a href="#" class="enlace">Ofertas</a></li>
+                </ul>
+            </div>
+
+            <div class="seccion">
+                <div class="titulo">REDES SOCIALES</div>
+                <div class="redes">
+                    <a href="https://www.facebook.com/tacobell">Facebook</a>
+                    <a href="https://www.instagram.com/mariaaa___mejiaaa/?utm_source=ig_web_button_share_sheet">Instagram</a>
+                </div>
+            </div>
+
+            <div class="seccion">
+                <div class="titulo">CONTACTO</div>
+                <div class="texto"><a href="https://maps.app.goo.gl/LnZrzRWKq79RHfen6" class="boton">Ubicación</a></div>
+                <div class="texto">Email: tacoslacarly@gmail.com</div>
+                <div class="texto">Telefono: 8886-8842</div>
+            </div>
+        </div>
+
+        <div class="abajo">
+            <div class="texto">&copyTacos LaCarly 2025</div>
+        </div>
+    </div>
+</body>
+  </footer>
+</body>
+</html>
