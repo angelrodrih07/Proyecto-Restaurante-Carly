@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Restaurante</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .pie {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .contenido {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .seccion {
+            margin: 10px;
+            width: 200px;
+        }
+
+        .titulo {
+            color: #4CAF50;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .texto {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .enlace {
+            color: white;
+            text-decoration: none;
+        }
+
+        .enlace:hover {
+            color: #4CAF50;
+        }
+
+        .lista {
+            list-style: none;
+            padding: 0;
+        }
+
+        .lista li {
+            margin: 5px 0;
+        }
+
+        .redes {
+            margin-top: 10px;
+        }
+
+        .redes a {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 5px 8px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .boton {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 5px;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+
+        .abajo {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #444;
+            font-size: 12px;
+        }
+        iframe{
+            display: none;
+        }
+        .map:target ~ iframe {
+            display: block;
+        }
+        @media (max-width: 600px) {
+            .contenido {
+                flex-direction: column;
+            }
+            .seccion {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pie">
+        <div class="contenido">
+            
+            <div class="seccion">
+                <div class="titulo">PIDE AQUI</div>
+                <div class="texto">Los Mejores Tacos</div>
+                <a href="#" class="boton">Ordena</a>
+            </div>
+
+            <div class="seccion">
+                <div class="titulo">ENLACES</div>
+                <ul class="lista">
+                    <li><a href="#" class="enlace">Contactanos</a></li>
+                    <li><a href="#" class="enlace">Registrate</a></li>
+                    <li><a href="#" class="enlace">Menu</a></li>
+                    <li><a href="#" class="enlace">Ofertas</a></li>
+                </ul>
+            </div>
+
+            <div class="seccion">
+                <div class="titulo">REDES SOCIALES</div>
+                <div class="redes">
+                    <a href="https://www.facebook.com/tacobell">Facebook</a>
+                    <a href="https://www.instagram.com/mariaaa___mejiaaa/?utm_source=ig_web_button_share_sheet">Instagram</a>
+                </div>
+            </div>
+
+            <div class="seccion">
+                <div class="titulo">CONTACTO</div>
+                <div class="texto"><a href="https://maps.app.goo.gl/LnZrzRWKq79RHfen6" class="boton">Ubicación</a></div>
+                <div class="texto">Email: tacoslacarly@gmail.com</div>
+                <div class="texto">Telefono: 8886-8842</div>
+            </div>
+        </div>
+
+        <div class="abajo">
+            <div class="texto">&copyTacos LaCarly 2025</div>
+        </div>
+    </div>
+</body>
+</html>
